@@ -3379,6 +3379,9 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0040
 			public const int collapseActionView = 2131361856;
 			
+			// aapt resource value: 0x7f0a00c2
+			public const int confirmPassword = 2131361986;
+			
 			// aapt resource value: 0x7f0a00a8
 			public const int container = 2131361960;
 			
@@ -3454,6 +3457,9 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a005f
 			public const int filled = 2131361887;
 			
+			// aapt resource value: 0x7f0a00c0
+			public const int firstName = 2131361984;
+			
 			// aapt resource value: 0x7f0a005c
 			public const int @fixed = 2131361884;
 			
@@ -3499,6 +3505,9 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00a7
 			public const int largeLabel = 2131361959;
 			
+			// aapt resource value: 0x7f0a00c1
+			public const int lastName = 2131361985;
+			
 			// aapt resource value: 0x7f0a0054
 			public const int left = 2131361876;
 			
@@ -3514,8 +3523,11 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0070
 			public const int list_item = 2131361904;
 			
-			// aapt resource value: 0x7f0a00c1
-			public const int masked = 2131361985;
+			// aapt resource value: 0x7f0a009f
+			public const int loginBtn = 2131361951;
+			
+			// aapt resource value: 0x7f0a00c5
+			public const int masked = 2131361989;
 			
 			// aapt resource value: 0x7f0a009c
 			public const int message = 2131361948;
@@ -3588,6 +3600,9 @@ namespace ProfessionalConnectProject
 			
 			// aapt resource value: 0x7f0a00b7
 			public const int right_side = 2131361975;
+			
+			// aapt resource value: 0x7f0a00c3
+			public const int role = 2131361987;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int save_image_matrix = 2131361804;
@@ -3706,9 +3721,6 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0084
 			public const int submenuarrow = 2131361924;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int submitBtn = 2131361951;
-			
 			// aapt resource value: 0x7f0a0098
 			public const int submit_area = 2131361944;
 			
@@ -3808,8 +3820,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00c0
-			public const int visible = 2131361984;
+			// aapt resource value: 0x7f0a00c4
+			public const int visible = 2131361988;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int withText = 2131361859;
@@ -4073,16 +4085,19 @@ namespace ProfessionalConnectProject
 			public const int notification_template_part_time = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int select_dialog_item_material = 2130968629;
+			public const int registrationView = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int select_dialog_multichoice_material = 2130968630;
+			public const int select_dialog_item_material = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int select_dialog_singlechoice_material = 2130968631;
+			public const int select_dialog_multichoice_material = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int support_simple_spinner_dropdown_item = 2130968632;
+			public const int select_dialog_singlechoice_material = 2130968632;
+			
+			// aapt resource value: 0x7f040039
+			public const int support_simple_spinner_dropdown_item = 2130968633;
 			
 			static Layout()
 			{
