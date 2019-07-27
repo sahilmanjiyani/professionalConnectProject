@@ -3379,8 +3379,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0040
 			public const int collapseActionView = 2131361856;
 			
-			// aapt resource value: 0x7f0a00c2
-			public const int confirmPassword = 2131361986;
+			// aapt resource value: 0x7f0a00c3
+			public const int confirmPassword = 2131361987;
 			
 			// aapt resource value: 0x7f0a00a8
 			public const int container = 2131361960;
@@ -3526,8 +3526,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a009f
 			public const int loginBtn = 2131361951;
 			
-			// aapt resource value: 0x7f0a00c5
-			public const int masked = 2131361989;
+			// aapt resource value: 0x7f0a00c6
+			public const int masked = 2131361990;
 			
 			// aapt resource value: 0x7f0a009c
 			public const int message = 2131361948;
@@ -3580,6 +3580,9 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a000b
 			public const int parent_matrix = 2131361803;
 			
+			// aapt resource value: 0x7f0a00c2
+			public const int password = 2131361986;
+			
 			// aapt resource value: 0x7f0a0058
 			public const int pin = 2131361880;
 			
@@ -3601,8 +3604,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00b7
 			public const int right_side = 2131361975;
 			
-			// aapt resource value: 0x7f0a00c3
-			public const int role = 2131361987;
+			// aapt resource value: 0x7f0a00c4
+			public const int role = 2131361988;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int save_image_matrix = 2131361804;
@@ -3820,8 +3823,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00c4
-			public const int visible = 2131361988;
+			// aapt resource value: 0x7f0a00c5
+			public const int visible = 2131361989;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int withText = 2131361859;
