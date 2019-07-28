@@ -14,7 +14,7 @@ using Android.Widget;
 
 namespace ProfessionalConnectProject
 {
-    class userDBHelper : SQLiteOpenHelper
+    class UserDBHelper : SQLiteOpenHelper
     {
         private static string _DatabaseName = "myuserdatabase.db";
 
@@ -79,7 +79,7 @@ namespace ProfessionalConnectProject
 
         SQLiteDatabase myDBuser;    // user database
         Context myContext;
-        public userDBHelper(Context context) : base(context, name: _DatabaseName, factory: null, version: 1)
+        public UserDBHelper(Context context) : base(context, name: _DatabaseName, factory: null, version: 1)
         {
             myContext = context;
             myDBuser = WritableDatabase;

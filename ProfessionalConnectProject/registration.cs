@@ -12,8 +12,8 @@ using Android.Widget;
 
 namespace ProfessionalConnectProject
 {
-    [Activity(Label = "registration")]
-    public class registration : Activity
+    [Activity(Label = "Registration")]
+    public class Registration : Activity
     {
 
        // EditText myfname, mylname, myuserid, mypass, myphone, myrole;
@@ -34,9 +34,9 @@ namespace ProfessionalConnectProject
             SetContentView(Resource.Layout.registrationView);
 
 
-            userDBHelper myuserDBHelper;
+            UserDBHelper myuserDBHelper;
 
-            myuserDBHelper = new userDBHelper(this);
+            myuserDBHelper = new UserDBHelper(this);
 
     
 
@@ -120,7 +120,10 @@ namespace ProfessionalConnectProject
 
                 } else
                 {
-                    Intent profilePage = new Intent(this, typeof(studentProfile));
+                    // save registration to database in reg_table 
+
+                    // go to student profile page if role is student
+                    Intent profilePage = new Intent(this, typeof(StudentProfile));
                     StartActivity(profilePage);
 
                 }

@@ -7,8 +7,8 @@ using Android.Content;
 
 namespace ProfessionalConnectProject
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity
+    [Activity(Label = "@string/app_name",  MainLauncher = true)]
+    public class MainActivity : Activity
     {
         EditText myUsername, myPassword;
         Button myLoginBtn, mySignUpBtn;
@@ -72,8 +72,11 @@ namespace ProfessionalConnectProject
 
             {
                 // direct to registration page
-                Intent regPage = new Intent(this, typeof(registration));
-                StartActivity(regPage);
+                // Intent regPage = new Intent(this, typeof(Registration));
+                // StartActivity(regPage);
+
+                Intent stdTab = new Intent(this, typeof(StudentTabs));
+                StartActivity(stdTab);
             }
 
 
