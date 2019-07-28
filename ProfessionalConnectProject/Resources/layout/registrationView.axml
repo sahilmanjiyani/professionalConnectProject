@@ -114,8 +114,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/loginBtn"
-            android:text="Login"
+            android:id="@+id/createAccountBtn"
+            android:text="Create Account"
             android:textColor="#ffffff"
             android:background="#0077B5"
             android:layout_marginLeft="10dp"

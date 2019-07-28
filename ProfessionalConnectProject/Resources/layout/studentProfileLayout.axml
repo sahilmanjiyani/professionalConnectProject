@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#0077B5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:scrollbars="vertical"
+    >
+   
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:id="@+id/title"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:textColor="#ffffff"
+        
+    />  
+ 
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="40dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="10dp"
+        >
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/myStudentPic"
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="First Name:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginBottom="5dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/firstName"
+            android:hint="First Name"
+            android:textColorHint ="#000000"
+            android:background="#ececec"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Name:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/lastName"
+            android:hint="Last Name"
+            android:textColorHint ="#000000"
+            android:background="#ececec"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp"
+        />
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/username"
+            android:hint="username"
+            android:textColorHint ="#000000"
+            android:background="#ececec"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp"
+        />
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/password"
+            android:background="#ececec"
+            android:textColor="#000000"
+            android:hint="password"
+            android:textColorHint="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+        />
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Role:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/role"
+            android:background="#ececec"
+            android:textColor="#000000"
+            android:hint="Role"
+            android:textColorHint="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+        />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Skills:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/skills"
+            android:background="#ececec"
+            android:textColor="#000000"
+            android:hint="Skills"
+            android:textColorHint="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+        />
+
+       <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Education:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/education"
+            android:background="#ececec"
+            android:textColor="#000000"
+            android:hint="Education"
+            android:textColorHint="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+        />
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Certification:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/certification"
+            android:background="#ececec"
+            android:textColor="#000000"
+            android:hint="Certification"
+            android:textColorHint="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+        />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/updateStudentProfile"
+            android:text="Update"
+            android:textColor="#ffffff"
+            android:background="#0077B5"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+        />
+
+       
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
