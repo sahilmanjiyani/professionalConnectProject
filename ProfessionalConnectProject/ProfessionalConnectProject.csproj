@@ -59,6 +59,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployerProfile.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -144,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\studentSecondFragmentLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\employerProfileView.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
