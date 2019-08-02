@@ -19,14 +19,14 @@ android:layout_height="wrap_content">
     android:background="#671178"
     android:textColor = "#ffffff"
     android:id="@+id/firstName"
-    android:layout_width="match_parent"
+    android:layout_width="200dp"
     android:layout_height="75dp"
     />
     <TextView
     android:textColor = "#ffffff"
     android:background="#437811"
     android:id="@+id/lastName"
-    android:layout_width="match_parented"
+    android:layout_width="200dp"
     android:layout_height="75dp"
     />
     
