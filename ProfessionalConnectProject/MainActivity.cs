@@ -15,7 +15,7 @@ namespace ProfessionalConnectProject
 
         Android.App.AlertDialog.Builder myAlert;
 
-        string alertField = "";
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,63 +30,60 @@ namespace ProfessionalConnectProject
             myLoginBtn = FindViewById<Button>(Resource.Id.loginBtn);
             mySignUpBtn = FindViewById<Button>(Resource.Id.signUpBtn);
 
+
+
             myLoginBtn.Click += onLoginButtonClick;
             
             // call function to click signup button
             mySignUpBtn.Click += onSignUpButtonClick;
 
-
             myAlert = new Android.App.AlertDialog.Builder(this);
 
+        }
 
 
-            void onLoginButtonClick(object sender, System.EventArgs e)
+        void onLoginButtonClick(object sender, System.EventArgs e)
+        {
+            var usernameValue = myUsername.Text;
+            var passValue = myPassword.Text;
+            
+            string alertField = "";
+            
+            //Inform the user with some Alert Message
+
+
+           
+
+
+            if (usernameValue == " " || usernameValue.Equals(""))
             {
-                var usernameValue = myUsername.Text;
-                var passValue =  myPassword.Text;
-
-                //Inform the user with some Alert Message
-
-                Dialog myDialog = myAlert.Create();
-
-                
-
-
-                if (usernameValue == " " || usernameValue.Equals(""))
-                {
-                    alertField = "username";
-                    myDialog.Show();
-
-                } else if (passValue == " " || passValue.Equals(""))
-                {
-
-                    myDialog.Show();
-                    alertField = "password";
-
-                }
-
-
+                alertField = "username";
             }
-
-            void onSignUpButtonClick(object sender, System.EventArgs e)
-
+            else if (passValue == " " || passValue.Equals(""))
             {
-                // direct to registration page
-                // Intent regPage = new Intent(this, typeof(Registration));
-                // StartActivity(regPage);
-
-                Intent stdTab = new Intent(this, typeof(StudentTabs));
-                StartActivity(stdTab);
+                alertField = "password";
             }
-
 
             myAlert.SetTitle("Error");
             myAlert.SetMessage("Enter the " + alertField);
             myAlert.SetPositiveButton("OK", OkAction);
             myAlert.SetNegativeButton("Cancel", CancelAction);
 
+            Dialog myDialog = myAlert.Create();
+            myDialog.Show();
+
         }
 
+        void onSignUpButtonClick(object sender, System.EventArgs e)
+
+        {
+            // direct to registration page
+            // Intent regPage = new Intent(this, typeof(Registration));
+            // StartActivity(regPage);
+
+            Intent stdTab = new Intent(this, typeof(StudentTabs));
+            StartActivity(stdTab);
+        }
         private void OkAction(object sender, DialogClickEventArgs e)
         {
 

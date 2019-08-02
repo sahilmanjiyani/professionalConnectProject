@@ -36,8 +36,8 @@ namespace ProfessionalConnectProject
 
                 _fragmentsArray = new Fragment[]
                 {
-                    new StudentFirstFragment(name),
-                    new StudentSecondFragment(),
+                    new StudentFirstFragment(this),
+                    new StudentSecondFragment(this),
                 };
 
                 AddTabToActionBar("First"); //First Tab

@@ -6,10 +6,11 @@
               android:gravity="center"
               android:layout_height="match_parent">
     
-    <TextView
+   
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/myNameId"
-     />   
+        android:layout_height="match_parent"
+        android:id="@+id/empFavList"
+    />
     
 </LinearLayout>

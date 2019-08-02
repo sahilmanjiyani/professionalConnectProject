@@ -15,6 +15,14 @@ namespace ProfessionalConnectProject
 {
     public class StudentSecondFragment : Fragment
     {
+        Activity myContext;
+
+        public StudentSecondFragment(Activity mycontext)
+        {
+            //mylocalName = name; 
+            this.myContext = mycontext;
+        }
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

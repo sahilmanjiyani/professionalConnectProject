@@ -59,7 +59,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="myCustomAdapter.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\studentSecondFragmentLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\myStudentCardView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
