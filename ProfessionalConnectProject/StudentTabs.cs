@@ -1,4 +1,6 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
+
 using Android.App;
 using Android.OS;
 using Android.Runtime;
@@ -13,13 +15,11 @@ namespace ProfessionalConnectProject
     public class StudentTabs : Activity
     {
         Fragment[] _fragmentsArray;
-        string name = "Welcome To my App";
+
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
-            
-
                 // Set our view from the "main" layout resource
                 // RequestWindowFeature(Android.Views.WindowFeatures.ActionBar);
                 //enable navigation mode to support tab layout
@@ -27,31 +27,28 @@ namespace ProfessionalConnectProject
 
                 base.OnCreate(savedInstanceState);
 
-
-
                 // Create your application here
 
                 // Set our view from the "main" layout resource
                 SetContentView(Resource.Layout.studentTabsLayout);
 
-                _fragmentsArray = new Fragment[]
+            List<Cards> myFavList = new List<Cards>();
+
+            myFavList.Add(new Cards("abc", "xyz", Resource.Drawable.myPic));
+
+
+            _fragmentsArray = new Fragment[]
                 {
-                    new StudentFirstFragment(this),
+                    new StudentFirstFragment(this, myFavList),
                     new StudentSecondFragment(this),
                 };
+
 
                 AddTabToActionBar("First"); //First Tab
                 AddTabToActionBar("Second"); //Second Tab
 
 
-            
-
-            
-
-
         }
-
-
 
         void AddTabToActionBar(string tabTitle)
         {
@@ -64,8 +61,6 @@ namespace ProfessionalConnectProject
 
             ActionBar.AddTab(tab);
         }
-
-
 
         void TabOnTabSelected(object sender, ActionBar.TabEventArgs tabEventArgs)
         {

@@ -12,20 +12,20 @@ using Android.Widget;
 
 namespace ProfessionalConnectProject
 {
-    class Cards
+    public class Cards
     {
         public String firstName;
         public String lastName;
-       /* public int profilePic;
-        public String qualification;*/
+        public int profilePic;
+        //public String qualification;
 
         //public Cards(String fn, String ln, int pic, String qual )
-        public Cards(String fn, String ln)
+        public Cards(String fn, String ln, int pic)
         {
             this.firstName = fn;
             this.lastName = ln;
-           /* this.profilePic = pic;
-            this.qualification = qual;*/
+            this.profilePic = pic;
+//            this.qualification = qual;
 
         }
     }

@@ -73,10 +73,10 @@ namespace ProfessionalConnectProject
 
                 myView = myContext.LayoutInflater.Inflate(Resource.Layout.myStudentCardView, null);
 
-                // myView.FindViewById<ImageView>(Resource.Id.profilePic).SetImageResource(myCardsObj.profilePic);
                 myView.FindViewById<TextView>(Resource.Id.firstName).Text = myCardsObj.firstName;
-               // myView.FindViewById<TextView>(Resource.Id.qual).Text = myCardsObj.qualification;
+                //myView.FindViewById<TextView>(Resource.Id.qual).Text = myCardsObj.qualification;
                 myView.FindViewById<TextView>(Resource.Id.lastName).Text = myCardsObj.lastName;
+                myView.FindViewById<ImageView>(Resource.Id.studentPic).SetImageResource(myCardsObj.profilePic);
 
             }
 

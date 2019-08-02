@@ -15,22 +15,21 @@ namespace ProfessionalConnectProject
 {
     public class StudentFirstFragment : Fragment
     {
-        // string mylocalName;
 
         ListView myEmpFavList;
 
-        List<Cards> myFavList = new List<Cards>();
-
         // ArrayAdapter myArrayAdapter;
-
-        // List<int> myStringArray = new List<int>();
 
         Activity myContext;
 
-        public StudentFirstFragment(Activity mycontext)
+        List<Cards> myList;
+
+
+
+        public StudentFirstFragment(Activity mycontext, List<Cards> myFavList)
         {
-            //mylocalName = name; 
             this.myContext = mycontext;
+            this.myList = myFavList;
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -39,10 +38,9 @@ namespace ProfessionalConnectProject
 
             // Create your fragment here
 
+
+
             // myArrayAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, myStringArray);
-
-
-
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -53,12 +51,12 @@ namespace ProfessionalConnectProject
             // myView.FindViewById<TextView>(Resource.Id.myNameId).Text = mylocalName;
 
             //myFavList.Add(new Cards("abc", "xyz", Resource.Drawable.myPic, "sd"));
-            myFavList.Add(new Cards("abc", "xyz"));
+            
 
             myEmpFavList = myView.FindViewById<ListView>(Resource.Id.empFavList);
 
 
-            var myCustomAdp = new myCustomAdapter(myContext, myFavList);
+            var myCustomAdp = new myCustomAdapter(myContext, myList);
 
             myEmpFavList.Adapter = myCustomAdp;
 
