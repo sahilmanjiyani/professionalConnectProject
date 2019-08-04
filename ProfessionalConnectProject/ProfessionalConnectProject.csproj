@@ -59,11 +59,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Cards.cs" />
-=======
     <Compile Include="EmployerProfile.cs" />
->>>>>>> d10d44687b640b44c0dfefc67975e664b15c5057
     <Compile Include="MainActivity.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="myCustomAdapter.cs" />
@@ -151,12 +148,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <AndroidResource Include="Resources\layout\myStudentCardView.axml">
-=======
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\layout\employerProfileView.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
->>>>>>> d10d44687b640b44c0dfefc67975e664b15c5057
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

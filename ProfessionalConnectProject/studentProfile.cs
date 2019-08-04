@@ -127,6 +127,7 @@ namespace ProfessionalConnectProject
                 myLastName.Enabled = false;
                 myUsername.Enabled = false;
                 myPassword.Enabled = false;
+
                 myRole.Enabled = false;
                 mySkills.Enabled = false;
                 myEducation.Enabled = false;
