@@ -47,82 +47,154 @@ namespace ProfessionalConnectProject
 
             myUpdateBtn = FindViewById<Button>(Resource.Id.updateStudentProfile);
 
-            myAlert = new Android.App.AlertDialog.Builder(this);
+            myFirstName.Text = "Sahil";
+            myLastName.Text = "Manjiyani";
+            myUsername.Text = "sahilmanjiyani";
+            myPassword.Text = "1234";
+            myRole.Text = "Student";
+            mySkills.Text = "Java";
+            myEducation.Text = "B.E.";
+            myCertifications.Text = "Oracle";
 
-            Dialog myDialog = myAlert.Create();
+            myAlert = new Android.App.AlertDialog.Builder(this);
 
             myUpdateBtn.Click += myUpdateBtnClick;
 
-            void myUpdateBtnClick(object sender, System.EventArgs e)
+        }
+
+        void myUpdateBtnClick(object sender, System.EventArgs e)
+        {
+            if (myFirstName.Text == " " || myFirstName.Text.Equals(""))
             {
-                if (myFirstName.Text == " " || myFirstName.Text.Equals(""))
-                {
-                    alertField = "First Name";
-                    myDialog.Show();
+                alertField = "First Name";
+            }
+            else if (myLastName.Text == " " || myLastName.Text.Equals(""))
+            {
+                alertField = "Last Name";
+            }
+            else if (myUsername.Text == " " || myUsername.Text.Equals(""))
+            {
+                alertField = "username";
+            }
+            else if (myPassword.Text == " " || myPassword.Text.Equals(""))
+            {
+                alertField = "password";
+            }
+            else if (myRole.Text == " " || myRole.Text.Equals(""))
+            {
+                alertField = "confirmed password";
+            }
+            else if (mySkills.Text == " " || mySkills.Text.Equals(""))
+            {
+                alertField = "Role";
+            }
+            else if (myEducation.Text == " " || myEducation.Text.Equals(""))
+            {
+                alertField = "Role";
+            }
+            else if (myCertifications.Text == " " || myCertifications.Text.Equals(""))
+            {
+                alertField = "Role";
+            }
+            else
+            {
+                // save student details to database in student_table 
 
-                }
-                else if (myLastName.Text == " " || myLastName.Text.Equals(""))
-                {
+                onUpdateUnenableEdit(sender, e);
 
-                    myDialog.Show();
-                    alertField = "Last Name";
+                // go to student list page if role is student
+                /*Intent studentTabsPage = new Intent(this, typeof(StudentTabs));
+                StartActivity(studentTabsPage);*/
+            }
 
-                }
-                else if (myUsername.Text == " " || myUsername.Text.Equals(""))
-                {
+            if (alertField != "")
+            {
+                myAlert.SetTitle("Error");
+                myAlert.SetMessage("Enter the " + alertField);
+                myAlert.SetPositiveButton("OK", OkAction);
+                myAlert.SetNegativeButton("Cancel", CancelAction);
 
-                    myDialog.Show();
-                    alertField = "username";
+                Dialog myDialog = myAlert.Create();
+                myDialog.Show();
+            }
+        }
 
-                }
-                else if (myPassword.Text == " " || myPassword.Text.Equals(""))
-                {
+        void onUpdateUnenableEdit(object sender, System.EventArgs e)
+        {
+            if (myUpdateBtn.Text == "Update")
+            {
+                myFirstName.Enabled = false;
+                myLastName.Enabled = false;
+                myUsername.Enabled = false;
+                myPassword.Enabled = false;
+                myRole.Enabled = false;
+                mySkills.Enabled = false;
+                myEducation.Enabled = false;
+                myCertifications.Enabled = false;
 
-                    myDialog.Show();
-                    alertField = "password";
+                myUpdateBtn.Text = "Updated";
+            }
+            else
+            {
+                myFirstName.Enabled = true;
+                myLastName.Enabled = true;
+                myUsername.Enabled = true;
+                myPassword.Enabled = true;
+                myRole.Enabled = true;
+                mySkills.Enabled = true;
+                myEducation.Enabled = true;
+                myCertifications.Enabled = true;
 
-                }
-                else if (myRole.Text == " " || myRole.Text.Equals(""))
-                {
-
-                    myDialog.Show();
-                    alertField = "confirmed password";
-
-                }
-                else if (mySkills.Text == " " || mySkills.Text.Equals(""))
-                {
-
-                    myDialog.Show();
-                    alertField = "Role";
-
-                }
-                else if (myEducation.Text == " " || myEducation.Text.Equals(""))
-                {
-
-                    myDialog.Show();
-                    alertField = "Role";
-
-                }
-                else if (myCertifications.Text == " " || myCertifications.Text.Equals(""))
-                {
-
-                    myDialog.Show();
-                    alertField = "Role";
-
-                }
-                else
-                {
-                    // save student details to database in student_table 
-
-                    // go to student list page if role is student
-                    //Intent profilePage = new Intent(this, typeof(studentProfile));
-                    //StartActivity(profilePage);
-
-                }
-
+                myUpdateBtn.Text = "Update";
             }
 
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            // set the menu layout on Main Activity  
+            MenuInflater.Inflate(Resource.Menu.menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menuItem1:
+                    {
+                        Intent myLoginPage = new Intent(this, typeof(MainActivity));
+                        StartActivity(myLoginPage);
+                        // add your code  
+                        return true;
+                    }
+                case Resource.Id.menuItem2:
+                    {
+                        Intent myLoginPage = new Intent(this, typeof(MainActivity));
+                        StartActivity(myLoginPage);
+                        // add your code  
+                        return true;
+                    }
+                case Resource.Id.menuItem3:
+                    {
+                        Intent myStudentProfilePage = new Intent(this, typeof(StudentProfile));
+                        StartActivity(myStudentProfilePage);
+                        // add your code  
+                        return true;
+                    }
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+
+        private void OkAction(object sender, DialogClickEventArgs e)
+        {
+            System.Console.WriteLine("OK Button Cliked");
+        }
+
+        private void CancelAction(object sender, DialogClickEventArgs e)
+        {
+            System.Console.WriteLine("OK Button Cliked");
+        }
     }
 }

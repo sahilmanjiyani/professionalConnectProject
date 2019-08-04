@@ -65,6 +65,7 @@
     <Compile Include="EmployerProfile.cs" />
 >>>>>>> d10d44687b640b44c0dfefc67975e664b15c5057
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="myCustomAdapter.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -127,22 +128,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\menu.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\studentProfileLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\myPic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\menu.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\studentTabsLayout.axml">
@@ -166,6 +157,11 @@
     <AndroidResource Include="Resources\layout\employerProfileView.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
 >>>>>>> d10d44687b640b44c0dfefc67975e664b15c5057
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
