@@ -4,10 +4,11 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using Android.Content;
+using Android.Views;
 
 namespace ProfessionalConnectProject
 {
-    [Activity(Label = "@string/app_name",  MainLauncher = true)]
+    [Activity(Label = "@string/app_name", MainLauncher = true)]
     public class MainActivity : Activity
     {
         EditText myUsername, myPassword;
@@ -41,6 +42,42 @@ namespace ProfessionalConnectProject
 
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            // set the menu layout on Main Activity  
+            MenuInflater.Inflate(Resource.Menu.menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menuItem1:
+                    {
+                        Intent myLoginPage = new Intent(this, typeof(MainActivity));
+                        StartActivity(myLoginPage);
+                        // add your code  
+                        return true;
+                    }
+                case Resource.Id.menuItem2:
+                    {
+                        Intent myLoginPage = new Intent(this, typeof(MainActivity));
+                        StartActivity(myLoginPage);
+                        // add your code  
+                        return true;
+                    }
+                case Resource.Id.menuItem3:
+                    {
+                        Intent myStudentProfilePage = new Intent(this, typeof(StudentProfile));
+                        StartActivity(myStudentProfilePage);
+                        // add your code  
+                        return true;
+                    }
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
 
         void onLoginButtonClick(object sender, System.EventArgs e)
         {
@@ -51,10 +88,6 @@ namespace ProfessionalConnectProject
             
             //Inform the user with some Alert Message
 
-
-           
-
-
             if (usernameValue == " " || usernameValue.Equals(""))
             {
                 alertField = "username";
@@ -62,6 +95,10 @@ namespace ProfessionalConnectProject
             else if (passValue == " " || passValue.Equals(""))
             {
                 alertField = "password";
+            }
+            else
+            {
+                // navigate to profile page here
             }
 
             myAlert.SetTitle("Error");

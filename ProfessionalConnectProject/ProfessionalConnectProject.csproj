@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Cards.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="myCustomAdapter.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -123,22 +124,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\menu.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\studentProfileLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\myPic.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\menu.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\studentTabsLayout.axml">
@@ -157,6 +148,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\myStudentCardView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

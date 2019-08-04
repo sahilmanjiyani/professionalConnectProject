@@ -17,15 +17,14 @@ namespace ProfessionalConnectProject
         public String firstName;
         public String lastName;
         public int profilePic;
-        //public String qualification;
+        public String qualification;
 
-        //public Cards(String fn, String ln, int pic, String qual )
-        public Cards(String fn, String ln, int pic)
+        public Cards(String fn, String ln, int pic, String qual )
         {
             this.firstName = fn;
             this.lastName = ln;
             this.profilePic = pic;
-//            this.qualification = qual;
+            this.qualification = qual;
 
         }
     }
