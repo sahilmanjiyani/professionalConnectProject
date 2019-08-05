@@ -12,7 +12,7 @@ using ActionBar = Android.App.ActionBar;
 
 namespace ProfessionalConnectProject
 {
-    [Activity(Label = "StudentTabs")]
+    [Activity(Label = "StudentTabs", MainLauncher = true)]
     public class StudentTabs : Activity
     {
         Fragment[] _fragmentsArray;
@@ -35,7 +35,7 @@ namespace ProfessionalConnectProject
 
                 List<Cards> myFavList = new List<Cards>();
 
-                myFavList.Add(new Cards("abc", "xyz", Resource.Drawable.myPic, "B.E"));
+                myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));
 
 
                 _fragmentsArray = new Fragment[]
@@ -45,9 +45,8 @@ namespace ProfessionalConnectProject
                     };
 
 
-                AddTabToActionBar("First"); //First Tab
-                AddTabToActionBar("Second"); //Second Tab
-
+                AddTabToActionBar("Employers"); //First Tab
+                AddTabToActionBar("Connected"); //Second Tab
 
         }
 

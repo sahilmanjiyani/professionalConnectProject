@@ -3123,26 +3123,26 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
-			// aapt resource value: 0x7f020071
-			public const int avd_hide_password_1 = 2130837617;
-			
 			// aapt resource value: 0x7f020072
-			public const int avd_hide_password_2 = 2130837618;
+			public const int avd_hide_password_1 = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int avd_hide_password_3 = 2130837619;
+			public const int avd_hide_password_2 = 2130837619;
+			
+			// aapt resource value: 0x7f020074
+			public const int avd_hide_password_3 = 2130837620;
 			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
 			
-			// aapt resource value: 0x7f020074
-			public const int avd_show_password_1 = 2130837620;
-			
 			// aapt resource value: 0x7f020075
-			public const int avd_show_password_2 = 2130837621;
+			public const int avd_show_password_1 = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int avd_show_password_3 = 2130837622;
+			public const int avd_show_password_2 = 2130837622;
+			
+			// aapt resource value: 0x7f020077
+			public const int avd_show_password_3 = 2130837623;
 			
 			// aapt resource value: 0x7f020056
 			public const int design_bottom_navigation_item_background = 2130837590;
@@ -3181,49 +3181,52 @@ namespace ProfessionalConnectProject
 			public const int myPic = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int navigation_empty_icon = 2130837602;
+			public const int myProfilePic = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int notification_action_background = 2130837603;
+			public const int navigation_empty_icon = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_bg = 2130837604;
+			public const int notification_action_background = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notification_bg_low = 2130837605;
+			public const int notification_bg = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_bg_low_normal = 2130837606;
+			public const int notification_bg_low = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_bg_low_pressed = 2130837607;
+			public const int notification_bg_low_normal = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_bg_normal = 2130837608;
+			public const int notification_bg_low_pressed = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int notification_bg_normal_pressed = 2130837609;
+			public const int notification_bg_normal = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_icon_background = 2130837610;
-			
-			// aapt resource value: 0x7f02006f
-			public const int notification_template_icon_bg = 2130837615;
-			
-			// aapt resource value: 0x7f020070
-			public const int notification_template_icon_low_bg = 2130837616;
+			public const int notification_bg_normal_pressed = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_tile_bg = 2130837611;
+			public const int notification_icon_background = 2130837611;
+			
+			// aapt resource value: 0x7f020070
+			public const int notification_template_icon_bg = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int notification_template_icon_low_bg = 2130837617;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notify_panel_notification_icon_bg = 2130837612;
+			public const int notification_tile_bg = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int tooltip_frame_dark = 2130837613;
+			public const int notify_panel_notification_icon_bg = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int tooltip_frame_light = 2130837614;
+			public const int tooltip_frame_dark = 2130837614;
+			
+			// aapt resource value: 0x7f02006f
+			public const int tooltip_frame_light = 2130837615;
 			
 			static Drawable()
 			{
@@ -3277,17 +3280,17 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0069
 			public const int action_bar_title = 2131361897;
 			
-			// aapt resource value: 0x7f0a00bd
-			public const int action_container = 2131361981;
+			// aapt resource value: 0x7f0a00be
+			public const int action_container = 2131361982;
 			
 			// aapt resource value: 0x7f0a008e
 			public const int action_context_bar = 2131361934;
 			
-			// aapt resource value: 0x7f0a00c8
-			public const int action_divider = 2131361992;
+			// aapt resource value: 0x7f0a00c9
+			public const int action_divider = 2131361993;
 			
-			// aapt resource value: 0x7f0a00be
-			public const int action_image = 2131361982;
+			// aapt resource value: 0x7f0a00bf
+			public const int action_image = 2131361983;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -3304,11 +3307,11 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a006b
 			public const int action_mode_close_button = 2131361899;
 			
-			// aapt resource value: 0x7f0a00bf
-			public const int action_text = 2131361983;
+			// aapt resource value: 0x7f0a00c0
+			public const int action_text = 2131361984;
 			
-			// aapt resource value: 0x7f0a00c9
-			public const int actions = 2131361993;
+			// aapt resource value: 0x7f0a00ca
+			public const int actions = 2131361994;
 			
 			// aapt resource value: 0x7f0a006c
 			public const int activity_chooser_view_content = 2131361900;
@@ -3367,14 +3370,14 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0052
 			public const int center_vertical = 2131361874;
 			
-			// aapt resource value: 0x7f0a00d1
-			public const int certification = 2131362001;
+			// aapt resource value: 0x7f0a00d2
+			public const int certification = 2131362002;
 			
 			// aapt resource value: 0x7f0a0086
 			public const int checkbox = 2131361926;
 			
-			// aapt resource value: 0x7f0a00c7
-			public const int chronometer = 2131361991;
+			// aapt resource value: 0x7f0a00c8
+			public const int chronometer = 2131361992;
 			
 			// aapt resource value: 0x7f0a0061
 			public const int clip_horizontal = 2131361889;
@@ -3388,8 +3391,11 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00b8
 			public const int company = 2131361976;
 			
-			// aapt resource value: 0x7f0a00cb
-			public const int confirmPassword = 2131361995;
+			// aapt resource value: 0x7f0a00cc
+			public const int confirmPassword = 2131361996;
+			
+			// aapt resource value: 0x7f0a00bd
+			public const int connectBtn = 2131361981;
 			
 			// aapt resource value: 0x7f0a00a9
 			public const int container = 2131361961;
@@ -3403,8 +3409,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00aa
 			public const int coordinator = 2131361962;
 			
-			// aapt resource value: 0x7f0a00cc
-			public const int createAccountBtn = 2131361996;
+			// aapt resource value: 0x7f0a00cd
+			public const int createAccountBtn = 2131361997;
 			
 			// aapt resource value: 0x7f0a007c
 			public const int custom = 2131361916;
@@ -3439,11 +3445,11 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a008f
 			public const int edit_query = 2131361935;
 			
-			// aapt resource value: 0x7f0a00d0
-			public const int education = 2131362000;
+			// aapt resource value: 0x7f0a00d1
+			public const int education = 2131362001;
 			
-			// aapt resource value: 0x7f0a00cd
-			public const int empFavList = 2131361997;
+			// aapt resource value: 0x7f0a00ce
+			public const int empFavList = 2131361998;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int end = 2131361847;
@@ -3484,8 +3490,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0067
 			public const int forever = 2131361895;
 			
-			// aapt resource value: 0x7f0a00d3
-			public const int frameLayout1 = 2131362003;
+			// aapt resource value: 0x7f0a00d4
+			public const int frameLayout1 = 2131362004;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int ghost_view = 2131361802;
@@ -3502,8 +3508,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0071
 			public const int icon = 2131361905;
 			
-			// aapt resource value: 0x7f0a00ca
-			public const int icon_group = 2131361994;
+			// aapt resource value: 0x7f0a00cb
+			public const int icon_group = 2131361995;
 			
 			// aapt resource value: 0x7f0a0041
 			public const int ifRoom = 2131361857;
@@ -3511,8 +3517,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a006e
 			public const int image = 2131361902;
 			
-			// aapt resource value: 0x7f0a00c3
-			public const int info = 2131361987;
+			// aapt resource value: 0x7f0a00c4
+			public const int info = 2131361988;
 			
 			// aapt resource value: 0x7f0a0068
 			public const int italic = 2131361896;
@@ -3547,17 +3553,17 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00a0
 			public const int loginBtn = 2131361952;
 			
-			// aapt resource value: 0x7f0a00d5
-			public const int masked = 2131362005;
-			
 			// aapt resource value: 0x7f0a00d6
-			public const int menuItem1 = 2131362006;
+			public const int masked = 2131362006;
 			
 			// aapt resource value: 0x7f0a00d7
-			public const int menuItem2 = 2131362007;
+			public const int menuItem1 = 2131362007;
 			
 			// aapt resource value: 0x7f0a00d8
-			public const int menuItem3 = 2131362008;
+			public const int menuItem2 = 2131362008;
+			
+			// aapt resource value: 0x7f0a00d9
+			public const int menuItem3 = 2131362009;
 			
 			// aapt resource value: 0x7f0a009c
 			public const int message = 2131361948;
@@ -3580,8 +3586,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00b3
 			public const int myEmployerPic = 2131361971;
 			
-			// aapt resource value: 0x7f0a00ce
-			public const int myStudentPic = 2131361998;
+			// aapt resource value: 0x7f0a00cf
+			public const int myStudentPic = 2131361999;
 			
 			// aapt resource value: 0x7f0a00ad
 			public const int navigation_header_container = 2131361965;
@@ -3595,14 +3601,14 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0025
 			public const int normal = 2131361829;
 			
-			// aapt resource value: 0x7f0a00c5
-			public const int notification_background = 2131361989;
+			// aapt resource value: 0x7f0a00c6
+			public const int notification_background = 2131361990;
+			
+			// aapt resource value: 0x7f0a00c2
+			public const int notification_main_column = 2131361986;
 			
 			// aapt resource value: 0x7f0a00c1
-			public const int notification_main_column = 2131361985;
-			
-			// aapt resource value: 0x7f0a00c0
-			public const int notification_main_column_container = 2131361984;
+			public const int notification_main_column_container = 2131361985;
 			
 			// aapt resource value: 0x7f0a0060
 			public const int outline = 2131361888;
@@ -3640,11 +3646,11 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a0055
 			public const int right = 2131361877;
 			
-			// aapt resource value: 0x7f0a00c4
-			public const int right_icon = 2131361988;
+			// aapt resource value: 0x7f0a00c5
+			public const int right_icon = 2131361989;
 			
-			// aapt resource value: 0x7f0a00c2
-			public const int right_side = 2131361986;
+			// aapt resource value: 0x7f0a00c3
+			public const int right_side = 2131361987;
 			
 			// aapt resource value: 0x7f0a00b7
 			public const int role = 2131361975;
@@ -3730,8 +3736,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00a1
 			public const int signUpBtn = 2131361953;
 			
-			// aapt resource value: 0x7f0a00cf
-			public const int skills = 2131361999;
+			// aapt resource value: 0x7f0a00d0
+			public const int skills = 2131362000;
 			
 			// aapt resource value: 0x7f0a00a7
 			public const int smallLabel = 2131361959;
@@ -3817,8 +3823,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a001a
 			public const int textinput_helper_text = 2131361818;
 			
-			// aapt resource value: 0x7f0a00c6
-			public const int time = 2131361990;
+			// aapt resource value: 0x7f0a00c7
+			public const int time = 2131361991;
 			
 			// aapt resource value: 0x7f0a0023
 			public const int title = 2131361827;
@@ -3865,8 +3871,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a00ba
 			public const int updateEmployerProfile = 2131361978;
 			
-			// aapt resource value: 0x7f0a00d2
-			public const int updateStudentProfile = 2131362002;
+			// aapt resource value: 0x7f0a00d3
+			public const int updateStudentProfile = 2131362003;
 			
 			// aapt resource value: 0x7f0a002d
 			public const int useLogo = 2131361837;
@@ -3880,8 +3886,8 @@ namespace ProfessionalConnectProject
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00d4
-			public const int visible = 2131362004;
+			// aapt resource value: 0x7f0a00d5
+			public const int visible = 2131362005;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int withText = 2131361859;

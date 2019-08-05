@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical" 
               android:layout_width="match_parent"
-              android:background="#bf42f5"
+              android:background="#0077B5"
               android:gravity="center"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:padding="10dp" >
     
    
     <ListView

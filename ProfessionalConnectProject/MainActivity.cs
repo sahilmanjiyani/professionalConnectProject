@@ -8,11 +8,14 @@ using Android.Views;
 
 namespace ProfessionalConnectProject
 {
-    [Activity(Label = "@string/app_name", MainLauncher = true)]
+    [Activity(Label = "@string/app_name")]
     public class MainActivity : Activity
     {
         EditText myUsername, myPassword;
         Button myLoginBtn, mySignUpBtn;
+
+        Spinner spinnerView;
+        string[] myCategory = { "Role", "Student", "Employer" };
 
         Android.App.AlertDialog.Builder myAlert;
 
@@ -31,7 +34,17 @@ namespace ProfessionalConnectProject
             myLoginBtn = FindViewById<Button>(Resource.Id.loginBtn);
             mySignUpBtn = FindViewById<Button>(Resource.Id.signUpBtn);
 
+            spinnerView = FindViewById<Spinner>(Resource.Id.roleSpinner );
 
+            spinnerView.Adapter = new ArrayAdapter
+                (this, Android.Resource.Layout.SimpleSpinnerDropDownItem , myCategory);
+
+
+            /*ArrayAdapter adapter = ArrayAdapter.CreateFromResource(this, Resource.array.spinner_data, Resource.Layout.sip );
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter)*/
+
+            spinnerView.ItemSelected += MyItemSelectedMethod;
 
             myLoginBtn.Click += onLoginButtonClick;
             
@@ -111,8 +124,23 @@ namespace ProfessionalConnectProject
 
         }
 
-        void onSignUpButtonClick(object sender, System.EventArgs e)
+        void MyItemSelectedMethod(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var index = e.Position;
 
+            var value = myCategory[index];
+            System.Console.WriteLine("value is " + value);
+
+
+            if (value.ToLower().Equals("Action"))
+            {
+                //create a veg array and create as a new adater 
+
+            }
+
+        }
+
+        void onSignUpButtonClick(object sender, System.EventArgs e)
         {
             // direct to registration page
             // Intent regPage = new Intent(this, typeof(Registration));

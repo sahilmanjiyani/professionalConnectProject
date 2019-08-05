@@ -24,6 +24,8 @@ namespace ProfessionalConnectProject
 
         List<Cards> myList;
 
+        Button myConnectedBtn;
+
 
 
         public StudentFirstFragment(Activity mycontext, List<Cards> myFavList)
@@ -50,11 +52,11 @@ namespace ProfessionalConnectProject
 
             // myView.FindViewById<TextView>(Resource.Id.myNameId).Text = mylocalName;
 
-            //myFavList.Add(new Cards("abc", "xyz", Resource.Drawable.myPic, "sd"));
-            
+            //myFavList.Add(new Cards("abc", "xyz", Resource.Drawable.myPic, "sd"));          
 
             myEmpFavList = myView.FindViewById<ListView>(Resource.Id.empFavList);
 
+            myConnectedBtn = myView.FindViewById<Button>(Resource.Id.connectBtn);
 
             var myCustomAdp = new myCustomAdapter(myContext, myList);
 
