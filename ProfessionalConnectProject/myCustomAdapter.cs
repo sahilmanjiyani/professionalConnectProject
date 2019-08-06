@@ -21,11 +21,13 @@ namespace ProfessionalConnectProject
         List<Cards> myList;
         private StudentFirstFragment studentFirstFragment;
         private List<Cards> myFavList;
-
-        public myCustomAdapter(Activity myContext, List<Cards> myUserList)
+        string myEmail;
+        UserDBHelper myUserDb;
+        public myCustomAdapter(Activity myContext, List<Cards> myUserList, string myEmail)
         {
             this.myContext = myContext;
             myList = myUserList;
+            this.myEmail = myEmail;
         }
 
         /*public myCustomAdapter(Activity myContext, List<Cards> myFavList)
@@ -55,6 +57,7 @@ namespace ProfessionalConnectProject
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             View myView = convertView;
+
             //myCustomAdapterViewHolder holder = null;
             Cards myCardsObj = myList[position];
 
@@ -77,9 +80,24 @@ namespace ProfessionalConnectProject
                 myView.FindViewById<TextView>(Resource.Id.qual).Text = myCardsObj.qualification;
                 myView.FindViewById<TextView>(Resource.Id.lastName).Text = myCardsObj.lastName;
                 myView.FindViewById<ImageView>(Resource.Id.studentPic).SetImageResource(myCardsObj.profilePic);
+                Button connectBtn = myView.FindViewById<Button>(Resource.Id.connectBtn);
 
+                connectBtn.Click += delegate
+                {
+                    connectBtn.Text = "CONNECTED";
+
+
+                    Intent myFavTab = new Intent();
+
+                    /*myFavTab.PutExtra("position", position);
+                    myContext.StartActivityFromFragment(studentFirstFragment, myFavTab, 0 );
+
+                    
+                   myUserDb = new UserDBHelper(myContext);
+                    myUserDb.savedFavEmp(myEmail);*/
+
+                };
             }
-
 
             //fill in your items
             //holder.Title.Text = "new text here";

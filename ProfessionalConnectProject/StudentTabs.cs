@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Android.App;
 using Android.Content;
+using Android.Database;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -17,7 +18,8 @@ namespace ProfessionalConnectProject
     {
         Fragment[] _fragmentsArray;
 
-
+        UserDBHelper myUserDb;
+        string myValue;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -26,6 +28,7 @@ namespace ProfessionalConnectProject
                 //enable navigation mode to support tab layout
                 ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
+            
                 base.OnCreate(savedInstanceState);
 
                 // Create your application here
@@ -35,12 +38,23 @@ namespace ProfessionalConnectProject
 
                 List<Cards> myFavList = new List<Cards>();
 
-                myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));
+                myUserDb = new UserDBHelper(this);
+
+                myValue = Intent.GetStringExtra("studentEmail");
+
+                ICursor myResult = myUserDb.selectfrominnerjoint2();
+                         myResult.MoveToFirst();
+
+                do {
+                    myFavList.Add(new Cards(myResult.GetString(0), myResult.GetString(1), Resource.Drawable.myProfilePic, myResult.GetString(2)));
+                } while (myResult.MoveToNext());
+
+                /*myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));*/
 
 
                 _fragmentsArray = new Fragment[]
                     {
-                        new StudentFirstFragment(this, myFavList),
+                        new StudentFirstFragment(this, myFavList, myValue ),
                         new StudentSecondFragment(this),
                     };
 
@@ -48,17 +62,17 @@ namespace ProfessionalConnectProject
                 AddTabToActionBar("Employers"); //First Tab
                 AddTabToActionBar("Connected"); //Second Tab
 
+
+            
+
         }
 
         void AddTabToActionBar(string tabTitle)
         {
             Android.App.ActionBar.Tab tab = ActionBar.NewTab();
             tab.SetText(tabTitle);
-
-           // tab.SetIcon(Android.Resource.Drawable.IcInputAdd);
-
+            // tab.SetIcon(Android.Resource.Drawable.IcInputAdd);
             tab.TabSelected += TabOnTabSelected;
-
             ActionBar.AddTab(tab);
         }
 
@@ -92,20 +106,21 @@ namespace ProfessionalConnectProject
                     }
                 case Resource.Id.menuItem2:
                     {
-                        Intent myLoginPage = new Intent(this, typeof(MainActivity));
-                        StartActivity(myLoginPage);
+                        Intent profilePage = new Intent(this, typeof(StudentProfile));
+                  
+                        profilePage.PutExtra("studentEmail", myValue);
+                        StartActivity(profilePage);
                         // add your code  
                         return true;
                     }
                 case Resource.Id.menuItem3:
                     {
-                        Intent myStudentProfilePage = new Intent(this, typeof(StudentProfile));
-                        StartActivity(myStudentProfilePage);
+                        Intent tabPage = new Intent(this, typeof(StudentTabs));
+                        StartActivity(tabPage);
                         // add your code  
                         return true;
                     }
             }
-
             return base.OnOptionsItemSelected(item);
         }
 
