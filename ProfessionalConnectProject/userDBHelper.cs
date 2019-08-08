@@ -206,7 +206,7 @@ namespace ProfessionalConnectProject
 
         //trial INNER JOINT reg table + student table
 
-        public void selectfrominnerjoint1()
+        public ICursor selectfrominnerjoint1()
         {
             System.Console.WriteLine(" Value form DB ----------------------------------------->  selectfrominnerjoint1");
 
@@ -238,6 +238,8 @@ namespace ProfessionalConnectProject
                 var innerlast = myresult.GetString(myresult.GetColumnIndexOrThrow(ColumnLname));
                 System.Console.WriteLine(" Value form DB --> " + innerlast);
             }
+
+            return myresult;
 
         }
 
@@ -325,6 +327,31 @@ namespace ProfessionalConnectProject
 
                 var CertfromDB = result.GetInt(result.GetColumnIndexOrThrow(ColumnCert));
                 System.Console.WriteLine(" Value Of Cert FROM DB --> " + CertfromDB);
+            }
+
+            return result;
+        }
+
+
+        public ICursor getEmployerProfile(string email)
+        {
+            string sqlQuery = "Select * from " + TableName3 +
+                                " where " + ColumnEmpId + " = '" + email + "'";
+
+            ICursor result = myDBuser.RawQuery(sqlQuery, null);
+
+
+            while (result.MoveToNext())
+            {
+                var EmpIDfromDB = result.GetString(result.GetColumnIndexOrThrow(ColumnEmpId));
+                System.Console.WriteLine(" Value  Of StuID  FROM DB ---------------------- --> " + EmpIDfromDB);
+
+                var CompanyfromDB = result.GetString(result.GetColumnIndexOrThrow(ColumnCmp));
+                System.Console.WriteLine(" Value  Of Skills  FROM DB ----------------------------- --> " + CompanyfromDB);
+
+                var PosfromDB = result.GetInt(result.GetColumnIndexOrThrow(ColumnPos));
+                System.Console.WriteLine(" Value Of Edu FROM DB ----------> " + PosfromDB);
+
             }
 
             return result;

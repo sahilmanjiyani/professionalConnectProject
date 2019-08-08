@@ -20,6 +20,8 @@ namespace ProfessionalConnectProject
 
         List<Cards> myList;
         private StudentFirstFragment studentFirstFragment;
+      // private EmployerFirstFragement employerFirstFragment;
+
         private List<Cards> myFavList;
         string myEmail;
         UserDBHelper myUserDb;
@@ -75,6 +77,9 @@ namespace ProfessionalConnectProject
                 // view.Tag = holder;
 
                 myView = myContext.LayoutInflater.Inflate(Resource.Layout.myStudentCardView, null);
+
+              //  myView = myContext.LayoutInflater.Inflate(Resource.Layout.myEmpCardView, null);
+
 
                 myView.FindViewById<TextView>(Resource.Id.firstName).Text = myCardsObj.firstName;
                 myView.FindViewById<TextView>(Resource.Id.qual).Text = myCardsObj.qualification;
