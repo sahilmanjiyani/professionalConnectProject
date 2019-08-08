@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
+using Android.Database;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -18,6 +19,8 @@ namespace ProfessionalConnectProject
 /*
         SearchView searchUsers;*/
 
+        UserDBHelper myUserDb;
+        string myValue;
         List<Cards> myFavList = new List<Cards>();
         List<Cards> myFilteredUser = new List<Cards>();
 
@@ -37,42 +40,35 @@ namespace ProfessionalConnectProject
 /*
             searchUsers = FindViewById<SearchView>(Resource.Id.searchViewId);*/
 
+                List<Cards> myFavList = new List<Cards>();
+
+                myUserDb = new UserDBHelper(this);
+
+                myValue = Intent.GetStringExtra("studentEmail");
             myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));
             myFavList.Add(new Cards("Sandharb", "Misra", Resource.Drawable.myProfilePic, "B.E"));
             myFavList.Add(new Cards("Vandana", "Ramaprasad", Resource.Drawable.myProfilePic, "B.E"));
             myFavList.Add(new Cards("Ranjit", "Singh", Resource.Drawable.myProfilePic, "B.E"));
 
-            _fragmentsArray = new Fragment[]
-                {
-                    new StudentFirstFragment(this, myFavList),
-                    new StudentSecondFragment(this),
-                };
+                ICursor myResult = myUserDb.selectfrominnerjoint2();
+                         myResult.MoveToFirst();
+
+                do {
+                    myFavList.Add(new Cards(myResult.GetString(0), myResult.GetString(1), Resource.Drawable.myProfilePic, myResult.GetString(2)));
+                } while (myResult.MoveToNext());
+
+                /*myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));*/
+
+
+                _fragmentsArray = new Fragment[]
+                    {
+                        new StudentFirstFragment(this, myFavList, myValue ),
+                        new StudentSecondFragment(this),
+                    };
 
 
             AddTabToActionBar("Employers"); //First Tab
             AddTabToActionBar("Connected"); //Second Tab
-
-            // searchUsers.QueryTextChange += MySearch_QueryTextChange;
-        }
-
-        private void MySearch_QueryTextChange(object sender, SearchView.QueryTextChangeEventArgs e)
-        {
-            var searchValue = e.NewText;
-
-            myFilteredUser.Clear();
-
-            for (int i = 0; i < myFavList.Count; i++)
-            {
-                if (myFavList[i].firstName.Contains(searchValue) || myFavList[i].lastName.Contains(searchValue))
-                {
-                    myFilteredUser.Add(myFavList[i]);
-                }
-            }
-
-            //var myFilteredAdapter = new myCustomAdapter(this, myFilteredUser);
-
-            _fragmentsArray[0] = new StudentFirstFragment(this, myFilteredUser);
-            //users.Adapter = myFilteredAdapter;
 
         }
 
@@ -91,7 +87,6 @@ namespace ProfessionalConnectProject
             }
 
             tab.TabSelected += TabOnTabSelected;
-
             ActionBar.AddTab(tab);
         }
 
@@ -125,20 +120,21 @@ namespace ProfessionalConnectProject
                     }
                 case Resource.Id.menuItem2:
                     {
-                        Intent myLoginPage = new Intent(this, typeof(MainActivity));
-                        StartActivity(myLoginPage);
+                        Intent profilePage = new Intent(this, typeof(StudentProfile));
+                  
+                        profilePage.PutExtra("studentEmail", myValue);
+                        StartActivity(profilePage);
                         // add your code  
                         return true;
                     }
                 case Resource.Id.menuItem3:
                     {
-                        Intent myStudentProfilePage = new Intent(this, typeof(StudentProfile));
-                        StartActivity(myStudentProfilePage);
+                        Intent tabPage = new Intent(this, typeof(StudentTabs));
+                        StartActivity(tabPage);
                         // add your code  
                         return true;
                     }
             }
-
             return base.OnOptionsItemSelected(item);
         }
 

@@ -23,19 +23,19 @@ namespace ProfessionalConnectProject
         Activity myContext;
 
         List<Cards> myList;
+        string myEmail;
         List<Cards> myFilteredUser = new List<Cards>();
 
-        Button myConnectedBtn;
+        //Button myConnectedBtn;
 
         SearchView searchUsers;
 
 
-
-
-        public StudentFirstFragment(Activity mycontext, List<Cards> myFavList)
+        public StudentFirstFragment(Activity mycontext, List<Cards> myFavList, string email)
         {
             this.myContext = mycontext;
             this.myList = myFavList;
+            this.myEmail = email;
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -65,11 +65,13 @@ namespace ProfessionalConnectProject
 
             myConnectedBtn = myView.FindViewById<Button>(Resource.Id.connectBtn);
 
-            var myCustomAdp = new myCustomAdapter(myContext, myList);
+            var myCustomAdp = new myCustomAdapter(myContext, myList, myEmail);
 
             searchUsers.QueryTextChange += MySearch_QueryTextChange;
 
             myEmpFavList.Adapter = myCustomAdp;
+
+           
 
             return myView;
 

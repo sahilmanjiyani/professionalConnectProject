@@ -60,7 +60,7 @@ namespace ProfessionalConnectProject
             + ColumnCert + " TEXT, " +
             "FOREIGN KEY ( " + ColumnStuId + " ) " + "REFERENCES " +TableName1 + " ( " +ColumnUserId +" ));" ;
 
-
+       
      // Table #3 for  Employer
 
         private const string TableName3 = "EMP_TABLE";
@@ -92,6 +92,9 @@ namespace ProfessionalConnectProject
             db.ExecSQL(CreateRegTable);
             db.ExecSQL(CreateStudentTable);
             db.ExecSQL(CreateEmpTable);
+
+           
+            
         }
 
 
@@ -116,6 +119,7 @@ namespace ProfessionalConnectProject
 
             System.Console.WriteLine("Insert SQL " + insertSQLReg);
             myDBuser.ExecSQL(insertSQLReg);
+
         }
 
         // insert values for student table
@@ -137,6 +141,8 @@ namespace ProfessionalConnectProject
 
             System.Console.WriteLine("Insert SQL " + insertSQLStu);
             myDBuser.ExecSQL(insertSQLStu);
+
+           
         }
 
         // insert values for emp table
@@ -156,6 +162,17 @@ namespace ProfessionalConnectProject
             myDBuser.ExecSQL(insertSQLEmp);
         }
 
+        //check if user exists
+        public ICursor checkIFEmailExist(String email, String password)
+        {
+            String sqlQuery = "Select * from " + TableName1 + " Where " + ColumnUserId + " = '" + email + "' AND " + ColumnPassowrd + " = '" + password + "'";
+
+            ICursor result = myDBuser.RawQuery(sqlQuery, null);
+
+            return result;
+        }
+
+
 
         // display values for reg table
         public void selectMyValuesReg()
@@ -167,9 +184,6 @@ namespace ProfessionalConnectProject
 
             while (result.MoveToNext())
             {
-
-                
-
                 var FNamefromDB = result.GetString(result.GetColumnIndexOrThrow(ColumnFname));
                 System.Console.WriteLine(" Value  Of FirstName  FROM DB  --> " + FNamefromDB);
 
@@ -190,6 +204,132 @@ namespace ProfessionalConnectProject
 
         }
 
+        //trial INNER JOINT reg table + student table
+
+        public void selectfrominnerjoint1()
+        {
+            System.Console.WriteLine(" Value form DB ----------------------------------------->  selectfrominnerjoint1");
+
+            String sqlQueryinner = "SELECT " +
+            TableName1 + "." + ColumnFname + ", " +
+            TableName1 + "." + ColumnLname + ", " +
+           //  ColumnUserId + " TEXT, " +
+            TableName2 + "." + ColumnEdu + 
+            " FROM " + TableName1 + " INNER JOIN ( " + TableName2 + " )" +
+                "ON " + TableName1 + "." + ColumnUserId + " = " + TableName2 + "." + ColumnStuId;
+
+
+            ICursor myresult = myDBuser.RawQuery(sqlQueryinner, null);
+
+
+            System.Console.WriteLine(" Value form DB -----------------------------------------> " + sqlQueryinner);
+
+           // System.Console.WriteLine(" Value form DB -----------------------------------------> "+ myresult.Count);
+            //System.Console.WriteLine(" Value form DB -----------------------------------------> " + myresult.GetColumnIndexOrThrow(ColumnLname));
+
+            while (myresult.MoveToNext())
+            {
+
+               var innerfirst = myresult.GetString(myresult.GetColumnIndexOrThrow(ColumnFname));
+
+                
+                System.Console.WriteLine(" Value form DB --> " + innerfirst);
+
+                var innerlast = myresult.GetString(myresult.GetColumnIndexOrThrow(ColumnLname));
+                System.Console.WriteLine(" Value form DB --> " + innerlast);
+            }
+
+        }
+
+
+
+        //trial INNER JOINT reg table + employee table
+
+        public ICursor selectfrominnerjoint2()
+        {
+            System.Console.WriteLine(" Value form DB ----------------------------------------->  selectfrominnerjoint2");
+
+            String sqlQueryinneremp = "SELECT " +
+            TableName1 + "." + ColumnFname + ", " +
+            TableName1 + "." + ColumnLname + ", " +
+            //  ColumnUserId + " TEXT, " +
+            //TableName1 + "." + ColumnPhone + ", " +
+           // TableName1 + "." + ColumnRole + ", " +
+            TableName3 + "." + ColumnCmp + 
+            //TableName3 + "." + ColumnPos +
+
+
+           " FROM " + TableName1 + " INNER JOIN ( " + TableName3 + " )" +
+            "ON " + TableName1 + "." + ColumnUserId + " = " + TableName3 + "." + ColumnEmpId; ;
+
+
+            ICursor myresult = myDBuser.RawQuery(sqlQueryinneremp, null);
+
+
+            System.Console.WriteLine(" Value form DB -----------------------------------------> " + sqlQueryinneremp);
+
+            // System.Console.WriteLine(" Value form DB -----------------------------------------> "+ myresult.Count);
+            //System.Console.WriteLine(" Value form DB -----------------------------------------> " + myresult.GetColumnIndexOrThrow(ColumnLname));
+
+            while (myresult.MoveToNext())
+            {
+
+                var innerfirst = myresult.GetString(myresult.GetColumnIndexOrThrow(ColumnFname));
+
+
+                System.Console.WriteLine(" Value form DB --> " + innerfirst);
+
+                var innerlast = myresult.GetString(myresult.GetColumnIndexOrThrow(ColumnLname));
+                System.Console.WriteLine(" Value form DB --> " + innerlast);
+            }
+
+            return myresult;
+        }
+
+
+
+
+
+
+        public ICursor getProfile(string email)
+        {
+            string sqlQuery = "Select * from " + TableName1 +
+                                " where " + ColumnUserId + " = '" + email + "'";
+
+            ICursor result = myDBuser.RawQuery(sqlQuery, null);
+
+            return result;
+        }
+
+        public ICursor getStudentProfile(string email)
+        {
+            string sqlQuery = "Select * from " + TableName2 +
+                                " where " + ColumnStuId + " = '" + email + "'";
+
+            ICursor result = myDBuser.RawQuery(sqlQuery, null);
+
+
+            while (result.MoveToNext())
+            {
+                var StuIDfromDB = result.GetString(result.GetColumnIndexOrThrow(ColumnStuId));
+                System.Console.WriteLine(" Value  Of StuID  FROM DB ---------------------- --> " + StuIDfromDB);
+
+                var SkillsfromDB = result.GetString(result.GetColumnIndexOrThrow(ColumnSkills));
+                System.Console.WriteLine(" Value  Of Skills  FROM DB ----------------------------- --> " + SkillsfromDB);
+
+                var EdufromDB = result.GetInt(result.GetColumnIndexOrThrow(ColumnEdu));
+                System.Console.WriteLine(" Value Of Edu FROM DB ----------> " + EdufromDB);
+
+                var ExpfromDB = result.GetInt(result.GetColumnIndexOrThrow(ColumnExp));
+                System.Console.WriteLine(" Value Of Edu FROM DB ----------> " + ExpfromDB);
+
+                var CertfromDB = result.GetInt(result.GetColumnIndexOrThrow(ColumnCert));
+                System.Console.WriteLine(" Value Of Cert FROM DB --> " + CertfromDB);
+            }
+
+            return result;
+        }
+
         // display values for Student table 
 
         public void selectMyValuesStu()
@@ -201,9 +341,6 @@ namespace ProfessionalConnectProject
 
             while (result.MoveToNext())
             {
-
-
-
                 var StuIDfromDB = result.GetString(result.GetColumnIndexOrThrow(ColumnStuId));
                 System.Console.WriteLine(" Value  Of StuID  FROM DB  --> " + StuIDfromDB);
 
@@ -218,14 +355,11 @@ namespace ProfessionalConnectProject
 
                 var CertfromDB = result.GetInt(result.GetColumnIndexOrThrow(ColumnCert));
                 System.Console.WriteLine(" Value Of Cert FROM DB --> " + CertfromDB);
-
             }
-
 
         }
 
-        
-
+       
         // display values for Employee table 
 
         public void selectMyValuesEmp()
@@ -275,7 +409,15 @@ namespace ProfessionalConnectProject
             }
         }
 
+
     */
+
+
+        /*public void savedFavEmp(string email)
+        {
+            string alterStuQuery = "ALTER TABLE " + TableName2 + " ADD " + "ColumnFav " + "TEXT";
+            updateEmpQuery = "UPDATE TABLE " + TableName2 + "WHERE " + ColumnStuId + " = " + email + "SET " + Colu
+        }*/
         public override void OnUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
         {
             throw new NotImplementedException();

@@ -17,6 +17,7 @@ namespace ProfessionalConnectProject
     {
         Activity myContext;
 
+
         public StudentSecondFragment(Activity mycontext)
         {
             //mylocalName = name; 
@@ -38,6 +39,7 @@ namespace ProfessionalConnectProject
             return myView;
 
             // return base.OnCreateView(inflater, container, savedInstanceState);
+
         }
     }
 }
