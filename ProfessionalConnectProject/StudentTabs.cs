@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -16,37 +15,64 @@ namespace ProfessionalConnectProject
     public class StudentTabs : Activity
     {
         Fragment[] _fragmentsArray;
+/*
+        SearchView searchUsers;*/
 
-
+        List<Cards> myFavList = new List<Cards>();
+        List<Cards> myFilteredUser = new List<Cards>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-                // Set our view from the "main" layout resource
-                // RequestWindowFeature(Android.Views.WindowFeatures.ActionBar);
-                //enable navigation mode to support tab layout
-                ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+            // Set our view from the "main" layout resource
+            // RequestWindowFeature(Android.Views.WindowFeatures.ActionBar);
+            //enable navigation mode to support tab layout
+            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
-                base.OnCreate(savedInstanceState);
+            base.OnCreate(savedInstanceState);
 
-                // Create your application here
+            // Create your application here
 
-                // Set our view from the "main" layout resource
-                SetContentView(Resource.Layout.studentTabsLayout);
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.studentTabsLayout);
+/*
+            searchUsers = FindViewById<SearchView>(Resource.Id.searchViewId);*/
 
-                List<Cards> myFavList = new List<Cards>();
+            myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));
+            myFavList.Add(new Cards("Sandharb", "Misra", Resource.Drawable.myProfilePic, "B.E"));
+            myFavList.Add(new Cards("Vandana", "Ramaprasad", Resource.Drawable.myProfilePic, "B.E"));
+            myFavList.Add(new Cards("Ranjit", "Singh", Resource.Drawable.myProfilePic, "B.E"));
 
-                myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));
+            _fragmentsArray = new Fragment[]
+                {
+                    new StudentFirstFragment(this, myFavList),
+                    new StudentSecondFragment(this),
+                };
 
 
-                _fragmentsArray = new Fragment[]
-                    {
-                        new StudentFirstFragment(this, myFavList),
-                        new StudentSecondFragment(this),
-                    };
+            AddTabToActionBar("Employers"); //First Tab
+            AddTabToActionBar("Connected"); //Second Tab
 
+            // searchUsers.QueryTextChange += MySearch_QueryTextChange;
+        }
 
-                AddTabToActionBar("Employers"); //First Tab
-                AddTabToActionBar("Connected"); //Second Tab
+        private void MySearch_QueryTextChange(object sender, SearchView.QueryTextChangeEventArgs e)
+        {
+            var searchValue = e.NewText;
+
+            myFilteredUser.Clear();
+
+            for (int i = 0; i < myFavList.Count; i++)
+            {
+                if (myFavList[i].firstName.Contains(searchValue) || myFavList[i].lastName.Contains(searchValue))
+                {
+                    myFilteredUser.Add(myFavList[i]);
+                }
+            }
+
+            //var myFilteredAdapter = new myCustomAdapter(this, myFilteredUser);
+
+            _fragmentsArray[0] = new StudentFirstFragment(this, myFilteredUser);
+            //users.Adapter = myFilteredAdapter;
 
         }
 
@@ -55,7 +81,14 @@ namespace ProfessionalConnectProject
             Android.App.ActionBar.Tab tab = ActionBar.NewTab();
             tab.SetText(tabTitle);
 
-           // tab.SetIcon(Android.Resource.Drawable.IcInputAdd);
+            if (tabTitle == "Employers")
+            {
+               tab.SetIcon(Resource.Drawable.userIcon);
+            }
+            else
+            {
+                tab.SetIcon(Resource.Drawable.starIcon);
+            }
 
             tab.TabSelected += TabOnTabSelected;
 

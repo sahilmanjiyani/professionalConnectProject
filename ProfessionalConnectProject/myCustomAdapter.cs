@@ -19,8 +19,9 @@ namespace ProfessionalConnectProject
         Context context;
 
         List<Cards> myList;
-        private StudentFirstFragment studentFirstFragment;
         private List<Cards> myFavList;
+        Button myConnectBtn;
+        UserDBHelper myDB;
 
         public myCustomAdapter(Activity myContext, List<Cards> myUserList)
         {
@@ -78,13 +79,21 @@ namespace ProfessionalConnectProject
                 myView.FindViewById<TextView>(Resource.Id.lastName).Text = myCardsObj.lastName;
                 myView.FindViewById<ImageView>(Resource.Id.studentPic).SetImageResource(myCardsObj.profilePic);
 
+                myConnectBtn = myView.FindViewById<Button>(Resource.Id.connectBtn);
+                myDB = new UserDBHelper(myContext);
+                myConnectBtn.Click += onMyBtnClick;
+
+
             }
 
 
-            //fill in your items
-            //holder.Title.Text = "new text here";
-
             return myView;
+        }
+
+        public void onMyBtnClick(object sender, EventArgs e)
+        {
+            System.Console.WriteLine("====================>>>>>>>>>>>>>>>>>>>");
+            myDB.selectMyValuesEmp();
         }
 
         //Fill in cound here, currently 0

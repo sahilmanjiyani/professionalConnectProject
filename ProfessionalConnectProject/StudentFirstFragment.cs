@@ -23,8 +23,12 @@ namespace ProfessionalConnectProject
         Activity myContext;
 
         List<Cards> myList;
+        List<Cards> myFilteredUser = new List<Cards>();
 
         Button myConnectedBtn;
+
+        SearchView searchUsers;
+
 
 
 
@@ -56,15 +60,40 @@ namespace ProfessionalConnectProject
 
             myEmpFavList = myView.FindViewById<ListView>(Resource.Id.empFavList);
 
+
+            searchUsers = myView.FindViewById<SearchView>(Resource.Id.searchViewId);
+
             myConnectedBtn = myView.FindViewById<Button>(Resource.Id.connectBtn);
 
             var myCustomAdp = new myCustomAdapter(myContext, myList);
+
+            searchUsers.QueryTextChange += MySearch_QueryTextChange;
 
             myEmpFavList.Adapter = myCustomAdp;
 
             return myView;
 
             // return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        private void MySearch_QueryTextChange(object sender, SearchView.QueryTextChangeEventArgs e)
+        {
+            var searchValue = e.NewText;
+
+            myFilteredUser.Clear();
+
+            for (int i = 0; i < myList.Count; i++)
+            {
+                if (myList[i].firstName.Contains(searchValue) || myList[i].lastName.Contains(searchValue))
+                {
+                    myFilteredUser.Add(myList[i]);
+                }
+            }
+
+            var myFilteredAdapter = new myCustomAdapter(myContext, myFilteredUser);
+
+            myEmpFavList.Adapter = myFilteredAdapter;
+
         }
 
         public override void OnResume()
