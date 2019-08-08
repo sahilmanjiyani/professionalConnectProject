@@ -67,9 +67,11 @@
     <Compile Include="Registration.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EmployerFirstFragment.cs" />
     <Compile Include="StudentFirstFragment.cs" />
     <Compile Include="StudentProfile.cs" />
     <Compile Include="StudentSecondFragment.cs" />
+    <Compile Include="EmployerTabs.cs" />
     <Compile Include="StudentTabs.cs" />
     <Compile Include="UserDBHelper.cs" />
   </ItemGroup>
@@ -170,6 +172,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\myEmpCardView.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\employerTabsLayout.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\employerFirstFragmentLayout.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
