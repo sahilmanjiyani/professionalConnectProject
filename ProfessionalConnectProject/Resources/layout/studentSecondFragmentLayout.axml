@@ -1,7 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
-              android:orientation="vertical" 
-              android:layout_width="match_parent"
-              android:background="#0077B5"
-              android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#0077B5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+    
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="News Feed"
+        android:id="@+id/title"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:textColor="#ffffff"
+        
+    />  
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jobs in Demand"
+        android:id="@+id/title"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:textColor="#ffffff"
+        
+    />
+ 
+  
+    
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstName"
+            android:textSize="30dp"
+            android:text="PHP Developer"
+        android:background="#ffffff"
+            android:textColor ="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sdf"
+            android:textSize="30dp"
+            android:text="Java Developer"
+        android:background="#ffffff"
+            android:textColor ="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        android:layout_marginBottom="10dp"
+        />
+    
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sdf"
+            android:textSize="30dp"
+            android:text="Python Developer"
+        android:background="#ffffff"
+            android:textColor ="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        android:layout_marginBottom="10dp"
+        />
+    
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/asd"
+            android:textSize="30dp"
+            android:text="Jr PHP Developer"
+        android:background="#ffffff"
+            android:textColor ="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        android:layout_marginBottom="10dp"
+        />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/java"
+            android:textSize="30dp"
+            android:text="PHP Developer"
+        android:background="#ffffff"
+            android:textColor ="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        android:layout_marginBottom="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/php"
+            android:textSize="30dp"
+            android:text="PHP Developer"
+        android:background="#ffffff"
+            android:textColor ="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        android:layout_marginBottom="10dp"
+        />
+            
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstName"
+            android:textSize="30dp"
+            android:text="PHP Developer"
+        android:background="#ffffff"
+            android:textColor ="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
+
 </LinearLayout>

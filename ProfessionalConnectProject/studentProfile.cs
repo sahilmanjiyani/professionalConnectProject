@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Database;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -15,8 +16,8 @@ namespace ProfessionalConnectProject
     [Activity(Label = "studentProfile")]
     public class StudentProfile : Activity
     {
-        EditText myFirstName, myLastName, myUsername, myPassword, myRole,
-                 mySkills, myEducation, myCertifications;
+        EditText myFirstName, myLastName, myUsername, myPassword, myPhone,
+        mySkills, myEducation, myExprience, myCertifications;
 
         ImageView myProfilePic;
 
@@ -24,7 +25,10 @@ namespace ProfessionalConnectProject
 
         Android.App.AlertDialog.Builder myAlert;
 
+        UserDBHelper myuserDBHelper;
+
         string alertField = "";
+        string myValue;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,21 +44,44 @@ namespace ProfessionalConnectProject
             myLastName = FindViewById<EditText>(Resource.Id.lastName);
             myUsername = FindViewById<EditText>(Resource.Id.username);
             myPassword = FindViewById<EditText>(Resource.Id.password);
-            myRole = FindViewById<EditText>(Resource.Id.role);
+            myPhone = FindViewById<EditText>(Resource.Id.phonenum);
             mySkills = FindViewById<EditText>(Resource.Id.skills);
             myEducation = FindViewById<EditText>(Resource.Id.education);
+            myExprience = FindViewById<EditText>(Resource.Id.exprience);
             myCertifications = FindViewById<EditText>(Resource.Id.certification);
 
             myUpdateBtn = FindViewById<Button>(Resource.Id.updateStudentProfile);
 
-            myFirstName.Text = "Sahil";
-            myLastName.Text = "Manjiyani";
-            myUsername.Text = "sahilmanjiyani";
-            myPassword.Text = "1234";
-            myRole.Text = "Student";
-            mySkills.Text = "Java";
-            myEducation.Text = "B.E.";
-            myCertifications.Text = "Oracle";
+            myuserDBHelper = new UserDBHelper(this);
+
+            myValue = Intent.GetStringExtra("studentEmail");
+
+            System.Console.WriteLine("-----------------------------> " + myValue);
+
+
+            ICursor studentProfile = myuserDBHelper.getProfile(myValue);
+            ICursor studentDetails = myuserDBHelper.getStudentProfile(myValue);
+
+            studentProfile.MoveToFirst();
+
+            myFirstName.Text = studentProfile.GetString(0);
+            myLastName.Text = studentProfile.GetString(1);
+
+            myUsername.Text = studentProfile.GetString(2);
+            myUsername.Enabled = false;
+            myPassword.Text = studentProfile.GetString(3);
+            myPhone.Text = studentProfile.GetString(4);
+
+
+            /*  if (studentDetails.Count > 0)
+              {
+                  studentDetails.MoveToFirst();
+                  myExprience.Text = studentProfile.GetString(5);
+                  mySkills.Text = studentDetails.GetString(0);
+                  myEducation.Text = studentDetails.GetString(1);
+                  myCertifications.Text = studentDetails.GetString(2);
+
+              }*/
 
             myAlert = new Android.App.AlertDialog.Builder(this);
 
@@ -80,24 +107,31 @@ namespace ProfessionalConnectProject
             {
                 alertField = "password";
             }
-            else if (myRole.Text == " " || myRole.Text.Equals(""))
+            else if (myPhone.Text == " " || myPhone.Text.Equals(""))
             {
                 alertField = "confirmed password";
             }
             else if (mySkills.Text == " " || mySkills.Text.Equals(""))
             {
-                alertField = "Role";
+                alertField = "Skills";
             }
             else if (myEducation.Text == " " || myEducation.Text.Equals(""))
             {
-                alertField = "Role";
+                alertField = "Education";
+            }
+            else if (myExprience.Text == " " || myExprience.Text.Equals(""))
+            {
+                alertField = "Exprience";
             }
             else if (myCertifications.Text == " " || myCertifications.Text.Equals(""))
             {
-                alertField = "Role";
+                alertField = "Certification";
             }
             else
             {
+
+                myuserDBHelper.insertValue(myUsername.Text, mySkills.Text, myEducation.Text, myExprience.Text, myCertifications.Text);
+
                 // save student details to database in student_table 
 
                 onUpdateUnenableEdit(sender, e);
@@ -125,10 +159,10 @@ namespace ProfessionalConnectProject
             {
                 myFirstName.Enabled = false;
                 myLastName.Enabled = false;
-                myUsername.Enabled = false;
+
                 myPassword.Enabled = false;
 
-                myRole.Enabled = false;
+                myPhone.Enabled = false;
                 mySkills.Enabled = false;
                 myEducation.Enabled = false;
                 myCertifications.Enabled = false;
@@ -139,9 +173,9 @@ namespace ProfessionalConnectProject
             {
                 myFirstName.Enabled = true;
                 myLastName.Enabled = true;
-                myUsername.Enabled = true;
+
                 myPassword.Enabled = true;
-                myRole.Enabled = true;
+                myPhone.Enabled = true;
                 mySkills.Enabled = true;
                 myEducation.Enabled = true;
                 myCertifications.Enabled = true;
@@ -153,7 +187,7 @@ namespace ProfessionalConnectProject
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            // set the menu layout on Main Activity  
+            // set the menu layout on Main Activity 
             MenuInflater.Inflate(Resource.Menu.menu, menu);
             return base.OnCreateOptionsMenu(menu);
         }
@@ -166,21 +200,22 @@ namespace ProfessionalConnectProject
                     {
                         Intent myLoginPage = new Intent(this, typeof(MainActivity));
                         StartActivity(myLoginPage);
-                        // add your code  
+                        // add your code 
                         return true;
                     }
                 case Resource.Id.menuItem2:
                     {
-                        Intent myLoginPage = new Intent(this, typeof(MainActivity));
-                        StartActivity(myLoginPage);
-                        // add your code  
+                        Intent profilePage = new Intent(this, typeof(StudentProfile));
+                        StartActivity(profilePage);
+                        // add your code 
                         return true;
                     }
                 case Resource.Id.menuItem3:
                     {
-                        Intent myStudentProfilePage = new Intent(this, typeof(StudentProfile));
-                        StartActivity(myStudentProfilePage);
-                        // add your code  
+                        Intent tabPage = new Intent(this, typeof(StudentTabs));
+                        tabPage.PutExtra("studentEmail", myUsername.Text);
+                        StartActivity(tabPage);
+                        // add your code 
                         return true;
                     }
             }

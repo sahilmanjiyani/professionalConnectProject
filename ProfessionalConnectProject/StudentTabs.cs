@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
+using Android.Database;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -11,7 +12,7 @@ using ActionBar = Android.App.ActionBar;
 
 namespace ProfessionalConnectProject
 {
-    [Activity(Label = "StudentTabs", MainLauncher = true)]
+    [Activity(Label = "StudentTabs")]
     public class StudentTabs : Activity
     {
         Fragment[] _fragmentsArray;
@@ -20,6 +21,8 @@ namespace ProfessionalConnectProject
 
         List<Cards> myFavList = new List<Cards>();
         List<Cards> myFilteredUser = new List<Cards>();
+
+        UserDBHelper myUserDb;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,13 +37,25 @@ namespace ProfessionalConnectProject
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.studentTabsLayout);
-/*
-            searchUsers = FindViewById<SearchView>(Resource.Id.searchViewId);*/
+            /*
+                        searchUsers = FindViewById<SearchView>(Resource.Id.searchViewId);*/
+            
+               /*         myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.Sahil, "B.E"));
+                        myFavList.Add(new Cards("Sandharb", "Misra", Resource.Drawable.sandu, "B.E"));
+                        myFavList.Add(new Cards("Vandana", "Ramaprasad", Resource.Drawable.vandu, "B.E"));
+                        myFavList.Add(new Cards("Ranjit", "Singh", Resource.Drawable.myProfilePic, "B.E"));*/
 
-            myFavList.Add(new Cards("Sahil", "Manjiyani", Resource.Drawable.myProfilePic, "B.E"));
-            myFavList.Add(new Cards("Sandharb", "Misra", Resource.Drawable.myProfilePic, "B.E"));
-            myFavList.Add(new Cards("Vandana", "Ramaprasad", Resource.Drawable.myProfilePic, "B.E"));
-            myFavList.Add(new Cards("Ranjit", "Singh", Resource.Drawable.myProfilePic, "B.E"));
+            myUserDb = new UserDBHelper(this);
+
+
+            ICursor myResult = myUserDb.selectfrominnerjoint1();
+            myResult.MoveToFirst();
+
+            do
+            {
+                myFavList.Add(new Cards(myResult.GetString(0), myResult.GetString(1), Resource.Drawable.myProfilePic, myResult.GetString(2)));
+            } while (myResult.MoveToNext());
+
 
             _fragmentsArray = new Fragment[]
                 {
